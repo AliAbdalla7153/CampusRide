@@ -3,11 +3,15 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const dns = require("dns");
 const ridesRouter = require("./routes/rides");
 const reservationsRouter = require("./routes/reservations");
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Some local network DNS servers reject MongoDB Atlas SRV lookups.
+dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
