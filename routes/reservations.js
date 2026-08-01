@@ -1,0 +1,1 @@
+const router = require("express").Router(); const Reservation = require("../models/Reservation"); router.get("/", async (req,res) => res.json(await Reservation.find().populate("ride"))); module.exports = router;
