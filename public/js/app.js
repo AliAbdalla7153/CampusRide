@@ -16,6 +16,10 @@ const campusRideApp = new CampusRideApp("/api");
 window.campusRideApp = campusRideApp;
 
 document.addEventListener("DOMContentLoaded", () => {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll("nav a").forEach((link) => {
+    if (link.getAttribute("href") === currentPage) link.setAttribute("aria-current", "page");
+  });
   const offerForm = document.querySelector("#offer-form");
   const message = document.querySelector("#message");
   const showMessage = (text, error = false) => { if (message) { message.textContent = text; message.className = error ? "error" : "success"; } };
