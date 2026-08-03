@@ -8,7 +8,8 @@ a { color:var(--blue); text-decoration:none; }
 .brand { color:var(--ink); font:800 1.2rem "Manrope",sans-serif; letter-spacing:-.045em; white-space:nowrap; }
 nav { display:flex; align-items:center; gap:.25rem; padding:.3rem; border:1px solid var(--line); border-radius:.8rem; background:#f7faff; }
 nav a { padding:.45rem .7rem; border-radius:.55rem; color:#4d5b76; font-size:.9rem; font-weight:600; transition:color .2s,background .2s,box-shadow .2s; }
-nav a:hover,nav a[aria-current="page"] { color:var(--blue); background:#fff; box-shadow:0 1px 4px #19355a14; }
+nav a:hover { color:var(--blue); background:#fff; box-shadow:0 1px 4px #19355a14; }
+nav a.is-current { color:#8b96a9; background:#edf1f6; cursor:default; pointer-events:none; box-shadow:none; }
 main { min-height:calc(100vh - 150px); }
 .hero { max-width:900px; margin:0 auto; padding:7.5rem 1.5rem 6rem; text-align:center; }
 .hero::after { content:""; display:block; width:min(100%,720px); height:1px; margin:4.5rem auto 0; background:linear-gradient(90deg,transparent,var(--line),transparent); }

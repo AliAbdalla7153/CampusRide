@@ -18,7 +18,11 @@ window.campusRideApp = campusRideApp;
 document.addEventListener("DOMContentLoaded", () => {
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll("nav a").forEach((link) => {
-    if (link.getAttribute("href") === currentPage) link.setAttribute("aria-current", "page");
+    if (link.getAttribute("href") === currentPage) {
+      link.setAttribute("aria-current", "page");
+      link.classList.add("is-current");
+      link.removeAttribute("href");
+    }
   });
   const offerForm = document.querySelector("#offer-form");
   const message = document.querySelector("#message");
