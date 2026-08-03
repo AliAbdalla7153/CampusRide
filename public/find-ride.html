@@ -9,17 +9,60 @@
 </head>
 
 <body>
-    <header class="site-header"><a class="brand" href="index.html">CampusRide</a>
-        <nav><a href="offer-ride.html">Offer a ride</a><a href="find-ride.html">Find a ride</a><a href="trip-history.html">Trip history</a><a
-                href="about.html">Developers</a></nav>
+    <header class="site-header">
+        <a class="brand" href="index.html">CampusRide</a>
+        <nav aria-label="Main navigation">
+            <a href="offer-ride.html">Offer a ride</a>
+            <a href="find-ride.html">Find a ride</a>
+            <a href="trip-history.html">Trip history</a>
+            <a href="about.html">Developers</a>
+        </nav>
     </header>
+
     <main class="page">
         <h1>Find a ride</h1>
-        <form id="search-form" class="form inline"><label>From<input name="origin"
-                    placeholder="Dubai"></label><label>To<input name="destination"
-                    placeholder="University"></label><button>Search</button></form>
+
+        <!-- Feedback Banner -->
+        <div id="message" role="alert" aria-live="polite"></div>
+
+        <!-- Search Form -->
+        <form id="search-form" class="form inline">
+            <label>From
+                <input name="origin" placeholder="Dubai">
+            </label>
+            <label>To
+                <input name="destination" placeholder="University">
+            </label>
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Search Results -->
         <section id="results" class="cards" aria-live="polite"></section>
+
+        <!-- Reservation Modal -->
+        <dialog id="reserve-modal" class="modal">
+            <form id="reserve-form" class="form">
+                <h2>Reserve a Seat</h2>
+                <input type="hidden" id="modal-ride-id" name="rideId">
+
+                <label>
+                    Your Name
+                    <input type="text" id="modal-rider-name" name="riderName" placeholder="Ali Abdalla" required>
+                </label>
+
+                <label>
+                    Your University Email
+                    <input type="email" id="modal-rider-email" name="riderEmail" placeholder="studentID@adu.ac.ae" required>
+                </label>
+
+                <div class="modal-actions">
+                    <button type="button" id="modal-cancel-btn">Cancel</button>
+                    <button type="submit">Confirm Reservation</button>
+                </div>
+            </form>
+        </dialog>
     </main>
+
     <script src="js/app.js"></script>
 </body>
 
